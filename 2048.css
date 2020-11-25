@@ -1,0 +1,496 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+html, body {
+  margin: 0;
+  background: #0F7173;
+  
+  min-height: 100%;
+  font-family: "Josefin Sans";
+  text-align:center;
+  overflow: hidden;
+}
+
+h1{
+  color:#F4F4F4;
+}
+
+#mobilewrap {
+  
+  width: 95%;
+  height: 100%;
+  text-align: center;
+}
+#mobilewrap a {
+  
+  bottom: 5vh;
+  right: 5vh;
+}
+#mobilewrap a .fa-twitter {
+  font-size: 5vh;
+  color: #1DA1F2;
+}
+
+#container {
+  position: absolute;
+  width: 50vh;
+  height: 50vh;
+  background:#4FC3F7;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 0 0 5px 5px;
+}
+#container .score {
+  position: absolute;
+  display: table;
+  top: -9vh;
+  width: 22vh;
+  height: 10vh;
+  background:#4FC3F7;
+  border-radius: 5px 0 0 0;
+  text-align: center;
+  padding-top: 0.5vh;
+  box-sizing: border-box;
+}
+#container .score p {
+  display: table-cell;
+  font-size: 3.5vh;
+}
+#container .score p .title {
+  display: block;
+  color: #272932;
+}
+#container .score p .scorefield {
+  color:#272932;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+#container .newgame {
+  position: absolute;
+  top: -9vh;
+  right: 0;
+  width: 29vh;
+  height: 10vh;
+  background:#4FC3F7;
+  border-radius: 0 5px 0 0;
+}
+#container .newgame .button {
+  position: absolute;
+  display: table;
+  width: 24vh;
+  height: 7vh;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #01579B;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+}
+#container .newgame .button:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  -webkit-transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+}
+#container .newgame .button:active {
+  box-shadow: inset 0 10px 20px rgba(0, 0, 0, 0.19), inset 0 6px 6px rgba(0, 0, 0, 0.23);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#container .newgame .button span {
+  display: table-cell;
+  color: #F4F4F4;
+  font-size: 3vh;
+  vertical-align: middle;
+}
+#container .over {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.7);
+  display: table;
+  text-align: center;
+  border-radius: 4px;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+#container .over span {
+  display: table-cell;
+  color: #455A64;
+  font-size: 5vh;
+  vertical-align: middle;
+}
+#container .won {
+  position: absolute;
+  top: 0;
+  left: 50vh;
+  width: 70vh;
+  height: 100%;
+  padding-top: 20vh;
+  opacity: 0;
+  border-radius: 4px;
+  padding-left: 4vh;
+  visibility: hidden;
+  -webkit-transition: padding-top 0.3s, opacity 0.4s;
+  transition: padding-top 0.3s, opacity 0.4s;
+}
+#container .won .winner {
+  display: block;
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 13vh;
+}
+#container .won .bestscore {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 4vh;
+}
+#container .won .numbest {
+  color: #FF5722;
+  font-size: 4.3vh;
+}
+#container .grid {
+  width: 100%;
+  height: 100%;
+  padding-top: 1vh;
+}
+#container .grid .row {
+  position: relative;
+  width: 100%;
+  height: 10vh;
+  padding-left: 1vh;
+}
+#container .grid .row .base {
+  position: relative;
+  float: left;
+  width: 10vh;
+  height: 10vh;
+  background:#0288D1;
+  border-radius: 5px;
+  margin: 1vh;
+  text-align: center;
+}
+#container .tiles {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 2vh;
+  box-sizing: border-box;
+}
+#container .tiles .tile {
+  position: absolute;
+  width: 10vh;
+  height: 10vh;
+  border-radius: 5px;
+  overflow: hidden;
+  -webkit-transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+}
+#container .tiles .tile:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  -webkit-transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+}
+#container .tiles .tile .tile_content {
+  display: table;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  -webkit-animation: pop-up 0.3s ease-in forwards;
+          animation: pop-up 0.3s ease-in forwards;
+  padding: 1px;
+}
+#container .tiles .tile .tile_content span {
+  display: table-cell;
+  font-size: 3.5vh;
+  vertical-align: middle;
+  font-family: 'Josefin Sans';
+}
+
+.tile-2 {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.tile-4 {
+  background:#E1BEE7;
+}
+
+.tile-8 {
+  background:#7986CB;
+}
+
+.tile-16 {
+  background: #D4E157;
+  
+}
+
+.tile-32 {
+  background: #76FF03;
+  
+  
+}
+
+.tile-64 {
+  background:#FFB300;
+  
+}
+
+.tile-128 {
+  background: #FFFF00;
+  color:red;
+}
+
+.tile-256 {
+  background: #76FF03;
+  box-shadow: 0 0 10px 1px #DCE775;
+}
+
+.tile-512 {
+  background:#00E5FF;
+  box-shadow: 0 0 15px 1px #D4E157;
+}
+
+.tile-1024 {
+  background:#64FFDA;
+}
+
+.tile-2048 {
+  background: #FFC107;
+  box-shadow: 0 0 10px 1px #FFC107;
+}
+
+.tile-4096 {
+  background:#212121;
+  box-shadow: 0 0 15px 1px #FF9800;
+  color: white;
+}
+
+.tile-8192 {
+  background: #7B1FA2;
+  box-shadow: 0 0 10px 1px #7B1FA2;
+  color: white;
+}
+
+@-webkit-keyframes pop-up {
+  0% {
+    -webkit-transform: scale(0.4);
+            transform: scale(0.4);
+  }
+  50% {
+    -webkit-transform: scale(1.4);
+            transform: scale(1.4);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes pop-up {
+  0% {
+    -webkit-transform: scale(0.4);
+            transform: scale(0.4);
+  }
+  50% {
+    -webkit-transform: scale(1.4);
+            transform: scale(1.4);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  -webkit-animation-name: fadeIn; /* Fade in the background */
+  -webkit-animation-duration: 0.4s;
+  animation-name: fadeIn;
+  animation-duration: 0.4s
+}
+
+/* Modal Content */
+.modal-content {
+  position: fixed;
+  bottom: 0;
+  background-color: #fefefe;
+  width: 100%;
+  -webkit-animation-name: slideIn;
+  -webkit-animation-duration: 0.4s;
+  animation-name: slideIn;
+  animation-duration: 0.4s
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+  from {bottom: -300px; opacity: 0} 
+  to {bottom: 0; opacity: 1}
+}
+
+@keyframes slideIn {
+  from {bottom: -300px; opacity: 0}
+  to {bottom: 0; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+  from {opacity: 0} 
+  to {opacity: 1}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0} 
+  to {opacity: 1}
+}
+
+.buttonTop {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+}
+
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    background-color: #E12D2D;
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    font-family: "Permanent Marker";
+ }
+
+ .social{
+   color: white;
+   background-color: gray;
+ }
+
+ .dave{
+   background-color:#E12D2D;
+   text-decoration: none;
+  color: #F4F4F4;
+   font-family: "Josefin Sans";
+ }
+
+ .homebutton {
+  border: 2px solid #0F7173;
+  padding: 8px 8px;
+  font-size: 18px;
+  width: 250px;
+  border-radius: 5px;
+  margin-top: 10px;
+  background-color:#D8A47F;
+  color: white;
+  }
+  
+  .home-btn:active,
+  .home-btn:focus {
+    outline: none;
+    border: 2px solid #E15E32;
+  }
+  
+  .home-btn:hover {
+    background-color: #ece9e9;
+    color: #000;
+    border: 2px solid black ;
+  }
+
+  .submit-btn {
+    border: 3px solid #272932;
+    padding: 8px 8px;
+    font-size: 22px;
+    font-family: "Josefin Sans";
+    width: 250px;
+    border-radius: 5px;
+    margin-top: 10px;
+    background-color: #D8A47F;
+    color:#272932;
+  }
+  
+  .submit-btn:active,
+  .submit-btn:focus {
+    outline: none;
+    border: 2px solid #E15E32;
+  }
+  
+  .submit-btn:hover {
+    background-color: #272932;
+    color: #D8A47F;
+    border: 3px solid#D8A47F;
+    border-radius: 5px;
+  }
+
+  @media only screen and (max-width: 767px) {
+  .button{
+    background-color: black;  
+    border-radius: 5px;
+    color: white;
+    padding-left: 3em;
+    padding-right: 3em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    text-decoration: none;
+    font-weight: 500;
+    }
+
+    .grid{
+      overflow: hidden;
+    }
+  }    

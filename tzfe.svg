@@ -1,0 +1,13 @@
+<svg viewBox="0 0 1440 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+<!-- width="1440" height="1024" -->
+<g clip-path="url(#clip0)">
+<rect width="1440" height="1024" fill="#F4F4F4"/>
+<ellipse cx="255.5" cy="278.5" rx="464.5" ry="455.5" fill="#B9966E"/>
+<ellipse rx="820.024" ry="435" transform="matrix(-0.971682 -0.236293 -0.236293 0.971682 208.59 834.448)" fill="#B9966E"/>
+</g>
+<defs>
+<clipPath id="clip0">
+<rect width="1440" height="1024" fill="white"/>
+</clipPath>
+</defs>
+</svg>
